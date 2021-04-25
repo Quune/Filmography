@@ -1,16 +1,15 @@
 from django.http import JsonResponse
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 
-from Backend.models import Movie
+from Backend.models import File
 
 
 @api_view(['GET', 'POST', 'DELETE'])
 def file_list(request):
     try:
-        movie = Movie.objects.all()
-    except Movie.DoesNotExist:
+        movie = File.objects.all()
+    except File.DoesNotExist:
         return JsonResponse({'message': 'The File does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
 
@@ -18,8 +17,8 @@ def file_list(request):
 def file_detail(request, pk):
     # find File by pk (id) with type of file (M,E)
     try:
-        movie = Movie.objects.get(pk=pk)
-    except Movie.DoesNotExist:
+        movie = File.objects.get(pk=pk)
+    except File.DoesNotExist:
         return JsonResponse({'message': 'The File does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
         # GET / PUT / DELETE File

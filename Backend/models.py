@@ -7,21 +7,12 @@ class File(models.Model):
     release_date = models.DateField()
     duration = models.CharField(max_length=50, blank=False, default='')
     note = models.IntegerField()
-    country = models.CharField(max_length=70, blank=False, default='')
-    langages = models.CharField(max_length=70, blank=False, default='')
-    subtitles = models.CharField(max_length=70, blank=False, default='')
-    video_type = models.CharField(max_length=70, blank=False, default='')
-    sound_type = models.CharField(max_length=70, blank=False, default='')
-    image = models.CharField(max_length=200, blank=False, default='')
-
-    class Meta:
-        abstract = True
-
-
-class Movie(File):
-    pass
-
-
-class Episode(File):
-    season = models.IntegerField()
-    number = models.IntegerField()
+    country = models.CharField(max_length=70, blank=True, default=None)
+    langages = models.CharField(max_length=70, blank=True, default=None)
+    subtitles = models.CharField(max_length=70, blank=True, default=None)
+    video_type = models.CharField(max_length=70, blank=True, default=None)
+    sound_type = models.CharField(max_length=70, blank=True, default=None)
+    image = models.CharField(max_length=200, blank=True, default=None)
+    season = models.CharField(max_length=4, blank=True, default=None)
+    number = models.CharField(max_length=4, blank=True, default=None)
+    idImdb = models.IntegerField(default=None)

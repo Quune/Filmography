@@ -1,14 +1,9 @@
 from rest_framework import serializers
-from Backend.models import Movie, Episode
+from Backend.models import File
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class FileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Movie
+        model = File
         fields = '__all__'
 
-
-class EpisodeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Episode
-        fields = '__all__'
